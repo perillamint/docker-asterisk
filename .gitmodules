@@ -1,3 +1,6 @@
 [submodule "sub/module/phpami"]
 	path = sub/module/phpami
 	url = https://github.com/ofbeaton/phpami.git
+[submodule "asterisk-chan-quectel"]
+	path = asterisk-chan-quectel
+	url = ../asterisk-chan-quectel.git
