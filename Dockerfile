@@ -175,5 +175,16 @@ RUN	apk --no-cache --update add \
 	asterisk-tds \
 	asterisk-dbg \
 	asterisk-dev \
+	asterisk-opus \
 	asterisk-sounds-moh \
 	man-pages
+
+RUN apk --no-cache --update add build-base autoconf automake sqlite-dev alsa-lib-dev
+
+ADD asterisk-chan-quectel ./asterisk-chan-quectel
+
+RUN cd asterisk-chan-quectel \
+ && ./bootstrap \
+ && ./configure --with-astversion=$(asterisk -V | sed 's/Asterisk //g') \
+ && make -j1\
+ && make install
